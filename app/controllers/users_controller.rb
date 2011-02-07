@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @users = User.all
+    @pagetitle = 'List of Users'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,8 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+    @pagetitle = "User #{@user.name} Info"
+    @headtitle = @pagetitle + @headtitle
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,6 +38,9 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @pagetitle = "Edit Details of #{@user.name}"
+    @headtitle = @pagetitle + @headtitle
+    
   end
 
   # POST /users
